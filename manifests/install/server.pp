@@ -95,8 +95,12 @@ class easy_ipa::install::server {
 
   if $easy_ipa::ipa_role == 'master' {
     contain 'easy_ipa::install::server::master'
+    Class['easy_ipa::install::server::master']
+    -> Class['easy_ipa::config::webui']
   } elsif $easy_ipa::ipa_role == 'replica' {
     contain 'easy_ipa::install::server::replica'
+    Class['easy_ipa::install::server::replica']
+    -> Class['easy_ipa::config::webui']
   }
 
   ensure_resource (
