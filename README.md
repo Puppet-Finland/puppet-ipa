@@ -272,11 +272,9 @@ Name of the sssd package.
 #### `sssdtools_package_name`
 Name of the sssdtools package.
 
-#### `webui_disable_kerberos`
-If true, then /etc/httpd/conf.d/ipa.conf is written to exclude kerberos support for
-incoming requests whose HTTP_HOST variable match the parameter 'webio_proxy_external_fqdn'.
-This allows the IPA Web UI to work on a proxied port, while allowing IPA client access to
-function as normal.
+####  ̀gssapi_no_negotiate ̀
+
+Suppress setting Negotiate headers based on BrowserMatch. Not sending these headers is useful to work around browsers that do not handle them properly (and incorrectly show authentication popups to users). Example: "Windows". Default undef.
 
 #### `webui_enable_proxy`
 If true, then httpd is configured to act as a reverse proxy for the IPA Web UI. This allows
