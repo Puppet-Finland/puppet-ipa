@@ -55,7 +55,7 @@ class easy_ipa::config::webui {
       path   => '/etc/httpd/conf.d/ipa.conf',
       line   => "  BrowserMatch \"${easy_ipa::gssapi_no_negotiate}\" gssapi-no-negotiate",
       notify => Service['httpd'],
-      after  => '^AuthType.*GSSAPI$',
+      after  => '^\s*AuthType\sGSSAPI$',
     }
   }
 }
