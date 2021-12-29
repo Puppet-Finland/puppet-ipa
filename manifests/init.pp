@@ -80,6 +80,11 @@
 # `idstart`
 #      (integer) From the IPA man pages: "The starting user and group id number".
 #
+#  ̀gssapi_no_negotiate ̀ 
+#      (regexp) Suppress setting Negotiate headers based on BrowserMatch.
+#               Not sending these headers is useful to work around browsers that do not handle them properly (and incorrectly show
+#               authentication popups to users). Example: "Windows". Default undef.
+#
 # `idmax`
 #      (integer) From the IPA man pages: "The max value for the IDs range (default: idstart+199999)".
 #
@@ -129,12 +134,6 @@
 # `server_install_ldaputils`
 #      (boolean) If true, then the ldaputils packages are installed if ipa_role is not set to client.
 #
-# `webui_disable_kerberos`
-#      (boolean) If true, then /etc/httpd/conf.d/ipa.conf is written to exclude kerberos support for
-#                incoming requests whose HTTP_HOST variable match the parameter 'webio_proxy_external_fqdn'.
-#                This allows the IPA Web UI to work on a proxied port, while allowing IPA client access to
-#                function as normal.
-#
 # `webui_enable_proxy`
 #      (boolean) If true, then httpd is configured to act as a reverse proxy for the IPA Web UI. This allows
 #                for the Web UI to be accessed from different ports and hostnames than the default.
@@ -177,6 +176,7 @@ class easy_ipa (
   Boolean       $enable_hostname                    = true,
   Boolean       $enable_ip_address                  = false,
   Boolean       $fixed_primary                      = false,
+  Regexp        $gssapi_no_negotiate                = false,
   Integer       $idstart                            = (fqdn_rand('10737') + 10000),
   Variant[Integer,Undef] $idmax                     = undef,
   Boolean       $install_autofs                     = false,

@@ -49,21 +49,13 @@ class easy_ipa::config::webui {
     }
   }
 
-  if $easy_ipa::webui_disable_kerberos {
-    file_line{'disable_kerberos_via_if_1':
+  if $easy_ipa::gssapi_no_negotiate {
+    file_line{'disable_negotiate_headers':
       ensure => present,
       path   => '/etc/httpd/conf.d/ipa.conf',
-      line   => "  <If \"%{HTTP_HOST} != '${proxy_server_external_fqdn_and_port}'\">",
+      line   => "  BrowserMatch \"${easy_ipa::gssapi_no_negotiate}\" gssapi-no-negotiate",
       notify => Service['httpd'],
-      after  => '^<Location\ "/ipa">',
-    }
-
-    file_line{'disable_kerberos_via_if_2':
-      ensure => present,
-      path   => '/etc/httpd/conf.d/ipa.conf',
-      line   => '  </If>',
-      notify => Service['httpd'],
-      after  => 'ErrorDocument\ 401\ /ipa/errors/unauthorized.html',
+      after  => '^Header unset Set-Cookie',
     }
   }
 }
