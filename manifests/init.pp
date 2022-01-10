@@ -81,7 +81,7 @@
 #      (integer) From the IPA man pages: "The starting user and group id number".
 #
 #  ̀gssapi_no_negotiate ̀ 
-#      (pattern) Suppress setting Negotiate headers based on BrowserMatch.
+#       Variant[Pattern,Undef] Suppress setting Negotiate headers based on BrowserMatch.
 #               Not sending these headers is useful to work around browsers that do not handle them properly (and incorrectly show
 #               authentication popups to users). Example: "Windows". Default undef.
 #
@@ -176,7 +176,7 @@ class easy_ipa (
   Boolean       $enable_hostname                    = true,
   Boolean       $enable_ip_address                  = false,
   Boolean       $fixed_primary                      = false,
-  Pattern       $gssapi_no_negotiate                = false,
+  Variant[Pattern,Undef] $gssapi_no_negotiate       = undef,
   Integer       $idstart                            = (fqdn_rand('10737') + 10000),
   Variant[Integer,Undef] $idmax                     = undef,
   Boolean       $install_autofs                     = false,
