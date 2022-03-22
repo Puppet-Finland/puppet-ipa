@@ -11,7 +11,7 @@
 #   Note that it is assumed that the IPA client host name is equal to the $::fqdn
 #   fact.
 #
-# @param ipa_Clients
+# @param ipa_clients
 #   One of more IPA clients whose host keys to puload
 # @param ipa_server
 #   A host which has the "ipa" tools installed. Not necessarily an IPA server.
