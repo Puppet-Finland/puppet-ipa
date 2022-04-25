@@ -1,4 +1,10 @@
+---
 version: 1.1.x.{build}
+skip_branch_with_pr: true
+branches:
+  only:
+    - main
+    - release
 skip_commits:
   message: /^\(?doc\)?.*/
 clone_depth: 10
@@ -11,30 +17,16 @@ init:
 environment:
   matrix:
     -
-      RUBY_VERSION: 24-x64
-      CHECK: syntax lint
+      RUBY_VERSION: 25-x64
+      CHECK: validate lint check rubocop
     -
-      RUBY_VERSION: 24-x64
-      CHECK: metadata_lint
+      PUPPET_GEM_VERSION: ~> 6.0
+      RUBY_VERSION: 25
+      CHECK: parallel_spec
     -
-      RUBY_VERSION: 24-x64
-      CHECK: rubocop
-    -
-      PUPPET_GEM_VERSION: ~> 4.0
-      RUBY_VERSION: 21
-      CHECK: spec
-    -
-      PUPPET_GEM_VERSION: ~> 4.0
-      RUBY_VERSION: 21-x64
-      CHECK: spec
-    -
-      PUPPET_GEM_VERSION: ~> 5.0
-      RUBY_VERSION: 24
-      CHECK: spec
-    -
-      PUPPET_GEM_VERSION: ~> 5.0
-      RUBY_VERSION: 24-x64
-      CHECK: spec
+      PUPPET_GEM_VERSION: ~> 6.0
+      RUBY_VERSION: 25-x64
+      CHECK: parallel_spec
 matrix:
   fast_finish: true
 install:

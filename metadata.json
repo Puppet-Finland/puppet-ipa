@@ -1,6 +1,6 @@
 {
   "name": "puppetfinland-easy_ipa",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "author": "Puppet-Finland team",
   "summary": "Manages IPA servers and clients.",
   "license": "Apache-2.0",
@@ -10,45 +10,64 @@
   "dependencies": [
     {
       "name": "puppetlabs-stdlib",
-      "version_requirement": ">= 4.19.0"
+      "version_requirement": ">= 4.19.0 < 9.0.0"
     },
     {
       "name": "puppetlabs-cron_core",
-      "version_requirement": ">=1.0.0 <2.0.0"
+      "version_requirement": ">=1.0.0 < 2.0.0"
     },
     {
       "name": "puppetlabs-k5login_core",
-      "version_requirement": ">=1.0.2 <2.0.0"
+      "version_requirement": ">=1.0.2 < 2.0.0"
     }
   ],
   "operatingsystem_support": [
     {
       "operatingsystem": "CentOS",
       "operatingsystemrelease": [
-        "7"
+        "7",
+        "8"
       ]
     },
     {
       "operatingsystem": "RedHat",
       "operatingsystemrelease": [
-        "7"
+        "7",
+        "8"
+      ]
+    },
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "10",
+        "11"
       ]
     },
     {
       "operatingsystem": "Ubuntu",
       "operatingsystemrelease": [
         "14.04",
-        "16.04"
+        "16.04",
+        "18.04",
+        "20.04",
+        "22.04"
       ]
     }
   ],
   "requirements": [
     {
       "name": "puppet",
-      "version_requirement": ">= 4.7.0 < 6.0.0"
+      "version_requirement": ">= 4.7.0 < 7.0.0"
     }
   ],
-  "pdk-version": "1.4.1",
-  "template-url": "file:///opt/puppetlabs/pdk/share/cache/pdk-templates.git",
-  "template-ref": "1.4.1-0-g52adbbb"
+  "tags": [
+    "ipa",
+    "easyipa",
+    "easy ipa",
+    "freeipa",
+    "free ipa"
+  ],
+  "pdk-version": "2.5.0",
+  "template-url": "pdk-default#2.5.0",
+  "template-ref": "tags/2.5.0-0-g369d483"
 }
