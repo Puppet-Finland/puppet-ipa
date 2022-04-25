@@ -21,9 +21,9 @@ class easy_ipa::params {
     }
     'Debian': {
       case $facts['os']['distro']['codename'] {
-        /(trusty|xenial|bionic|buster|focal)/: { $ipa_client_package_ensure = 'present' }
-        /(stretch)/:                           { $ipa_client_package_ensure = 'absent' }
-        default:                               { fail('ERROR: unsupported operating system') }
+        /(trusty|xenial|bionic|buster|focal|bullseye|jammy)/: { $ipa_client_package_ensure = 'present' }
+        /(stretch)/:                                          { $ipa_client_package_ensure = 'absent' }
+        default:                                              { fail('ERROR: unsupported operating system') }
       }
       $ldaputils_package_name = 'ldap-utils'
       $ipa_client_package_name = 'freeipa-client'
