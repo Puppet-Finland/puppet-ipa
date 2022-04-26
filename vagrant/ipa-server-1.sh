@@ -7,7 +7,7 @@ puppet apply --modulepath '/tmp/modules:/etc/puppetlabs/code/environments/produc
     admin_password => 'vagrant123',\
     directory_services_password => 'vagrant123',\
     install_ipa_server => true,\
-    ip_address => '192.168.44.35',\
+    ip_address => '192.168.56.35',\
     enable_ip_address => true,\
     enable_hostname => true,\
     manage_host_entry => true,\
@@ -16,4 +16,4 @@ puppet apply --modulepath '/tmp/modules:/etc/puppetlabs/code/environments/produc
     webui_enable_proxy => true,\
     webui_force_https => true,\
     idstart => 14341,\
-}"
+  }"

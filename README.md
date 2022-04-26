@@ -35,7 +35,7 @@ class {'easy_ipa':
     admin_password              => 'vagrant123',
     directory_services_password => 'vagrant123',
     install_ipa_server          => true,
-    ip_address                  => '192.168.44.35',
+    ip_address                  => '192.168.56.35',
     enable_ip_address           => true,
     enable_hostname             => true,
     manage_host_entry           => true,
@@ -54,7 +54,7 @@ class {'::easy_ipa':
     ipa_server_fqdn      => 'ipa-server-2.vagrant.example.lan',
     domain_join_password => 'vagrant123',
     install_ipa_server   => true,
-    ip_address           => '192.168.44.36',
+    ip_address           => '192.168.56.36',
     enable_ip_address    => true,
     enable_hostname      => true,
     manage_host_entry    => true,
@@ -131,7 +131,7 @@ to complete the enrollment of a host into IPA.
 On the IPA master:
 
     kinit admin
-    ipa host-add --ip-address=192.168.44.40 ipa-client-4.vagrant.example.lan
+    ipa host-add --ip-address=192.168.56.40 ipa-client-4.vagrant.example.lan
     ipa host-add-managedby --hosts=ipa-server-1.vagrant.example.lan ipa-client-4.vagrant.example.lan
     ipa-getkeytab --server=ipa-server-1.vagrant.example.lan -p host/ipa-client-4.vagrant.example.lan -k /tmp/ipa-client-4.keytab
     chmod 644 /tmp/ipa-client-4.keytab

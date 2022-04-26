@@ -1,12 +1,12 @@
 #/bin/sh
 puppet apply --modulepath '/tmp/modules:/etc/puppetlabs/code/environments/production/modules' -e "\
   class { 'resolv_conf':\
-    nameservers => ['192.168.44.35'],\
+    nameservers => ['192.168.56.35'],\
   }"
 puppet apply --modulepath '/tmp/modules:/etc/puppetlabs/code/environments/production/modules' -e "\
   host {'ipa-server-1.vagrant.example.lan':\
     ensure => present,\
-    ip => '192.168.44.35',\
+    ip => '192.168.56.35',\
   }"
 puppet apply --modulepath '/tmp/modules:/etc/puppetlabs/code/environments/production/modules' -e "\
   class {'::easy_ipa':\
@@ -15,7 +15,7 @@ puppet apply --modulepath '/tmp/modules:/etc/puppetlabs/code/environments/produc
     ipa_server_fqdn => 'ipa-server-2.vagrant.example.lan',\
     domain_join_password => 'vagrant123',\
     install_ipa_server => true,\
-    ip_address => '192.168.44.36',\
+    ip_address => '192.168.56.36',\
     enable_ip_address => true,\
     enable_hostname => true,\
     manage_host_entry => true,\

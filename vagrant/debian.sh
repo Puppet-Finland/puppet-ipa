@@ -1,5 +1,14 @@
 #!/bin/sh
 echo I am provisioning...
 export FACTER_is_vagrant='true'
-wget https://raw.githubusercontent.com/Puppet-Finland/scripts/3c1cf163edeebceebd4a29c7c28e6e3a4a11c319/bootstrap/linux/install-puppet.sh
-/bin/sh install-puppet.sh
+
+DEBIAN_FRONTEND=noninteractive
+apt-get dist-upgrade -y
+
+# For Debian systems, the freeipa-client package is only available in the backports repository.
+# It needs to be enabled manually.
+DESCR="$(lsb_release -d | awk '{ print $2}')"
+if [ `echo $DESCR|grep Debian` ]; then
+  puppet apply --modulepath '/tmp/modules:/etc/puppetlabs/code/environments/production/modules' -e \
+    "class { 'apt::backports': }"
+fi
