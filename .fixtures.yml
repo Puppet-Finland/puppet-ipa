@@ -1,7 +1,6 @@
 fixtures:
-  repositories:
-    stdlib: "git://github.com/puppetlabs/puppetlabs-stdlib"
   forge_modules:
+    stdlib: "puppetlabs/stdlib"
     cron_core:
       repo: "puppetlabs/cron_core"
       ref: "1.0.0"
