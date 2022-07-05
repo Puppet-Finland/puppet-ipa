@@ -81,6 +81,7 @@ class easy_ipa::install::client {
       logoutput => 'on_failure',
       before    => Service['sssd'],
       provider  => 'shell',
+      require   => Package['ipa-client'],
     }
   } else {
     include ::easy_ipa::install::client::manual
