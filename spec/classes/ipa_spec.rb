@@ -315,7 +315,7 @@ describe 'easy_ipa', type: :class do
         it { is_expected.not_to contain_class('easy_ipa::install::server::replica') }
         it { is_expected.not_to contain_class('easy_ipa::config::webui') }
 
-        it { is_expected.to contain_package('ipa-client') }
+        it { is_expected.to contain_package('ipa-client').that_comes_before('Exec[client_install_ipa.rpsec.example.lan]') }
         it { is_expected.to contain_package('sssd-common') }
         it { is_expected.to contain_package('kstart') }
         it { is_expected.to contain_package('epel-release') }
