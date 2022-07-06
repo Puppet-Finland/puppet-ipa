@@ -84,11 +84,11 @@ class easy_ipa::install::client {
       require   => Package['ipa-client'],
     }
   } else {
-    include ::easy_ipa::install::client::manual
+    contain easy_ipa::install::client::manual
   }
 
   if $facts['os']['family'] == 'Debian' and $::easy_ipa::mkhomedir {
-    include ::easy_ipa::install::client::debian
+    contain easy_ipa::install::client::debian
   }
 
   if $easy_ipa::install_sssd {
