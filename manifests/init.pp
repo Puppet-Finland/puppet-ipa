@@ -249,8 +249,7 @@ if $manage {
     default => '--no-sshd',
   }
 
-  class {'::easy_ipa::validate_params':}
-  -> class {'::easy_ipa::install':}
-
+  require easy_ipa::validate_params
+  contain easy_ipa::install
 }
 }

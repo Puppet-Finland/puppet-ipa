@@ -126,6 +126,6 @@ class easy_ipa::install::server {
   }
 
   easy_ipa::helpers::flushcache { "server_${easy_ipa::ipa_server_fqdn}": }
-  class {'::easy_ipa::config::admin_user': }
+  contain easy_ipa::config::admin_user
 
 }
