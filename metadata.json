@@ -1,6 +1,6 @@
 {
   "name": "puppetfinland-easy_ipa",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "author": "Puppet-Finland team",
   "summary": "Manages IPA servers and clients.",
   "license": "Apache-2.0",
