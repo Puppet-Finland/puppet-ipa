@@ -6,6 +6,15 @@ class easy_ipa::install::server {
     require easy_ipa::install::server::redhat
   }
 
+  $dns_packages = [
+    'ipa-server-dns',
+    'bind-dyndb-ldap',
+  ]
+
+  if $easy_ipa::final_configure_dns_server {
+    ensure_packages($dns_packages)
+  }
+
   package { $easy_ipa::params::ipa_server_package_name:
     ensure => present,
   }
