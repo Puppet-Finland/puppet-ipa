@@ -90,9 +90,6 @@
 # @param install_epel
 #      (boolean) If true, then the epel repo is installed. The epel repo is usually required for sssd packages.
 #
-# @param install_kstart
-#      (boolean) If true, then the kstart packages are installed.
-#
 # @param install_sssdtools
 #      (boolean) If true, then the sssdtools packages are installed.
 #
@@ -183,7 +180,6 @@ class easy_ipa (
   Variant[Integer,Undef] $idmax                    = undef,
   Boolean $install_autofs                          = false,
   Boolean $install_epel                            = true,
-  Boolean $install_kstart                          = true,
   Boolean $install_sssdtools                       = true,
   Boolean $install_ipa_client                      = true,
   Boolean $install_ipa_server                      = true,

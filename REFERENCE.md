@@ -27,6 +27,7 @@
 
 #### Private Classes
 
+* `easy_ipa::install::server::redhat`
 * `easy_ipa::validate_params`: Validates input configs from init.pp.
 
 ### Defined types
@@ -79,7 +80,6 @@ The following parameters are available in the `easy_ipa` class:
 * [`idmax`](#-easy_ipa--idmax)
 * [`install_autofs`](#-easy_ipa--install_autofs)
 * [`install_epel`](#-easy_ipa--install_epel)
-* [`install_kstart`](#-easy_ipa--install_kstart)
 * [`install_sssdtools`](#-easy_ipa--install_sssdtools)
 * [`install_ipa_client`](#-easy_ipa--install_ipa_client)
 * [`install_ipa_server`](#-easy_ipa--install_ipa_server)
@@ -309,14 +309,6 @@ Default value: `false`
 Data type: `Boolean`
 
 (boolean) If true, then the epel repo is installed. The epel repo is usually required for sssd packages.
-
-Default value: `true`
-
-##### <a name="-easy_ipa--install_kstart"></a>`install_kstart`
-
-Data type: `Boolean`
-
-(boolean) If true, then the kstart packages are installed.
 
 Default value: `true`
 

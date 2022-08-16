@@ -216,9 +216,6 @@ If true, then the autofs packages are installed.
 #### `install_epel`
 If true, then the epel repo is installed. The epel repo is usually required for sssd packages.
 
-#### `install_kstart`
-If true, then the kstart packages are installed.
-
 #### `install_ldaputils`
 If true, then the ldaputils packages are installed.
 
