@@ -23,11 +23,7 @@ class easy_ipa::install::server::master {
   ${easy_ipa::opt_no_sshd} \
   --unattended"
 
-  file { '/etc/ipa/primary':
-    ensure  => 'file',
-    content => 'Added by IPA Puppet module. Designates primary master. Do not remove.',
-  }
-  -> exec { "server_install_${easy_ipa::ipa_server_fqdn}":
+  exec { "server_install_${easy_ipa::ipa_server_fqdn}":
     command   => $server_install_cmd,
     timeout   => 0,
     unless    => '/usr/sbin/ipactl status >/dev/null 2>&1',
