@@ -9,7 +9,6 @@
 #### Public Classes
 
 * [`easy_ipa`](#easy_ipa): Manages IPA masters, replicas and clients.
-* [`easy_ipa::config::admin_user`](#easy_ipa--config--admin_user): Manage admin user
 * [`easy_ipa::config::webui`](#easy_ipa--config--webui): Configures port and redirect overrides for the IPA server web UI.
 * [`easy_ipa::install`](#easy_ipa--install): Manage easy_ipa install
 * [`easy_ipa::install::autofs`](#easy_ipa--install--autofs): Manage autofs
@@ -459,10 +458,6 @@ Data type: `Boolean`
 (boolean) Adjust UID_MAX and GID_MAX in login.defs. Without this newer server installers fail. Default false.
 
 Default value: `false`
-
-### <a name="easy_ipa--config--admin_user"></a>`easy_ipa::config::admin_user`
-
-Manage admin user
 
 ### <a name="easy_ipa--config--webui"></a>`easy_ipa::config::webui`
 

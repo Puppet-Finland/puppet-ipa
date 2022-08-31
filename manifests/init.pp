@@ -208,13 +208,6 @@ class easy_ipa (
       default => $realm,
     }
 
-    $master_principals = suffix(
-      prefix([$ipa_server_fqdn],
-        'host/'
-      ),
-      "@${final_realm}"
-    )
-
     $final_domain_join_password = $domain_join_password ? {
       undef   => $directory_services_password,
       default => $domain_join_password,
