@@ -30,7 +30,7 @@ class easy_ipa::install::server::master {
     timeout   => 0,
     unless    => '/usr/sbin/ipactl status >/dev/null 2>&1',
     creates   => '/etc/ipa/default.conf',
-    logoutput => 'on_failure',
+    logoutput => false,  # prevent passphrases from appearing in puppet log
     notify    => Easy_ipa::Helpers::Flushcache["server_${easy_ipa::ipa_server_fqdn}"],
     before    => Service['sssd'],
   }
