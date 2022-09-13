@@ -84,8 +84,11 @@ describe 'easy_ipa', type: :class do
           end
 
           it do
-            is_expected.to contain_exec('server_install_ipa.rpsec.example.lan').with_command(%r{--idstart=10000})
-            is_expected.to contain_exec('server_install_ipa.rpsec.example.lan').with_command(%r{--idmax=20000})
+            is_expected.to contain_exec('server_install_ipa.rpsec.example.lan').with(
+              logoutput: false
+            ).
+              with_command(%r{--idstart=10000}).
+              with_command(%r{--idmax=20000})
           end
         end
 
@@ -95,7 +98,9 @@ describe 'easy_ipa', type: :class do
           end
 
           it do
-            is_expected.to contain_exec('server_install_ipa.rpsec.example.lan').with_command(%r{--idstart=10000})
+            is_expected.to contain_exec('server_install_ipa.rpsec.example.lan').with(
+              logoutput: false
+            ).with_command(%r{--idstart=10000})
             is_expected.not_to contain_exec('server_install_ipa.rpsec.example.lan').with_command(%r{--idmax})
           end
         end
@@ -114,7 +119,11 @@ describe 'easy_ipa', type: :class do
               super().merge(configure_ssh: false)
             end
 
-            it { is_expected.to contain_exec('server_install_ipa.rpsec.example.lan').with_command(%r{--no-ssh(?!d)}) }
+            it {
+              is_expected.to contain_exec('server_install_ipa.rpsec.example.lan').with(
+                logoutput: false
+              ).with_command(%r{--no-ssh(?!d)})
+            }
           end
         end
 
@@ -132,7 +141,11 @@ describe 'easy_ipa', type: :class do
               super().merge(configure_sshd: false)
             end
 
-            it { is_expected.to contain_exec('server_install_ipa.rpsec.example.lan').with_command(%r{--no-sshd}) }
+            it {
+              is_expected.to contain_exec('server_install_ipa.rpsec.example.lan').with(
+                logoutput: false
+              ).with_command(%r{--no-sshd})
+            }
           end
         end
 
@@ -255,7 +268,11 @@ describe 'easy_ipa', type: :class do
               super().merge(configure_ssh: false)
             end
 
-            it { is_expected.to contain_exec('server_install_ipa.rpsec.example.lan').with_command(%r{--no-ssh(?!d)}) }
+            it {
+              is_expected.to contain_exec('server_install_ipa.rpsec.example.lan').with(
+                logoutput: false
+              ).with_command(%r{--no-ssh(?!d)})
+            }
           end
         end
 
@@ -273,7 +290,11 @@ describe 'easy_ipa', type: :class do
               super().merge(configure_sshd: false)
             end
 
-            it { is_expected.to contain_exec('server_install_ipa.rpsec.example.lan').with_command(%r{--no-sshd}) }
+            it {
+              is_expected.to contain_exec('server_install_ipa.rpsec.example.lan').with(
+                logoutput: false
+              ).with_command(%r{--no-sshd})
+            }
           end
         end
 
@@ -354,7 +375,11 @@ describe 'easy_ipa', type: :class do
               super().merge(configure_ssh: false)
             end
 
-            it { is_expected.to contain_exec('client_install_ipa.rpsec.example.lan').with_command(%r{--no-ssh(?!d)}) }
+            it {
+              is_expected.to contain_exec('client_install_ipa.rpsec.example.lan').with(
+                logoutput: false
+              ).with_command(%r{--no-ssh(?!d)})
+            }
           end
         end
 
@@ -372,7 +397,11 @@ describe 'easy_ipa', type: :class do
               super().merge(configure_sshd: false)
             end
 
-            it { is_expected.to contain_exec('client_install_ipa.rpsec.example.lan').with_command(%r{--no-sshd}) }
+            it {
+              is_expected.to contain_exec('client_install_ipa.rpsec.example.lan').with(
+                logoutput: false
+              ).with_command(%r{--no-sshd})
+            }
           end
         end
 

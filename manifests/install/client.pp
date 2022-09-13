@@ -77,7 +77,7 @@ class easy_ipa::install::client {
       timeout   => 0,
       unless    => "cat /etc/ipa/default.conf | grep -i \"${easy_ipa::domain}\"",
       creates   => '/etc/ipa/default.conf',
-      logoutput => 'on_failure',
+      logoutput => false,  # prevent passphrases from appearing in puppet log
       before    => Service['sssd'],
       provider  => 'shell',
       require   => Package['ipa-client'],
