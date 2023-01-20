@@ -50,12 +50,14 @@ plan easy_ipa::update_host_keys
     $rsa = $ipa_client.facts['ssh']['rsa']['key']
     $dsa = $ipa_client.facts['ssh']['dsa']['key']
 
-    $ipa_host_mod_cmd = "ipa host-mod ${ipa_client.facts['fqdn']} --sshpubkey=\"${ed25519}\" --sshpubkey=\"${ecdsa}\" --sshpubkey=\"${rsa}\" --sshpubkey=\"${dsa}\" --updatedns"
+    $ipa_host_mod_cmd = "ipa host-mod ${ipa_client.facts['fqdn']} --sshpubkey=\"${ed25519}\" --sshpubkey=\"${ecdsa}\" --sshpubkey=\"${rsa}\" --sshpubkey=\"${dsa}\" --updatedns"  # lint:ignore:140chars
 
     if $noop {
       out::message("No-op: would run \"${ipa_host_mod_cmd}\" on IPA server")
     } else {
+      # lint:ignore:manifest_whitespace_opening_bracket_before  # lint:ignore:140chars 
       $ipa_host_mod_resultset = run_command($ipa_host_mod_cmd, $ipa_server, '_catch_errors' => true) ['stdout','stderr'].each |$output| {
+        # lint:endignore
         out::message($ipa_host_mod_resultset.first.value[$output])
       }
     }

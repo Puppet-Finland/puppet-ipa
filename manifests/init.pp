@@ -152,6 +152,9 @@
 # @param webui_proxy_https_port
 #      (integer) The HTTPS port to use for the reverse proxy. Cannot be 443.
 #
+# @param adjust_login_defs
+#      (boolean) Adjust UID_MAX and GID_MAX in login.defs. Without this newer server installers fail. Default false.
+#
 # TODO: Allow creation of root zone for isolated networks -- https://www.freeipa.org/page/Howto/DNS_in_isolated_networks
 # TODO: Class comments.
 # TODO: Dependencies and metadata updates.
@@ -202,6 +205,7 @@ class easy_ipa (
   Boolean $webui_force_https                       = false,
   String $webui_proxy_external_fqdn                = 'localhost',
   String $webui_proxy_https_port                   = '8440',
+  Boolean $adjust_login_defs                       = false,
 ) {
   if $manage {
     # Include per-OS parameters and fail on unsupported OS
@@ -213,7 +217,7 @@ class easy_ipa (
     }
 
     $master_principals = suffix(
-      prefix( [$ipa_server_fqdn],
+      prefix([$ipa_server_fqdn],
         'host/'
       ),
       "@${final_realm}"
@@ -238,6 +242,23 @@ class easy_ipa (
     $opt_no_sshd = $configure_sshd ? {
       true    => '',
       default => '--no-sshd',
+    }
+
+    if $adjust_login_defs {
+      file_line {
+        default:
+          path    => '/etc/login.defs',
+          replace => true,
+          ;
+        'adjust uid max':
+          line  => "UID_MAX\t11999",
+          match => '^UID_MAX\s*60000$',
+          ;
+        'adjust gid max':
+          line  => "GID_MAX\t11999",
+          match => '^GID_MAX\s*60000$',
+          ;
+      }
     }
 
     require easy_ipa::validate_params

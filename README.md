@@ -204,7 +204,8 @@ and passed to the IPA installer.
 If true, then the parameter '--fixed-primary' is passed to the IPA installer.
 
 #### `idstart`
-From the IPA man pages: "The starting user and group id number".
+From the IPA man pages: "The starting user and group id number". Note that this
+will clash with installer on RedHat 9. See adjust_login_defs parameter.
 
 #### `idmax`
 From the IPA man pages: "The max value for the IDs range (default: idstart+199999)".
@@ -291,10 +292,13 @@ The public or external FQDN used to access the IPA Web UI behind the reverse pro
 #### `webui_proxy_https_port`
 The HTTPS port to use for the reverse proxy. Cannot be 443.
 
+#### `adjust_login_defs`
+Adjust UID_MAX and GID_MAX in login.defs. This is require on RedHat 9. Default false.
+
 
 ## Limitations
 
-This module has only been tested on Centos 7.
+This module has only been tested on Centos 7 and RedHat 9.
 
 ## Testing
 A vagrantfile is provided for easy testing.
