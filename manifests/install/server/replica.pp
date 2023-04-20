@@ -1,4 +1,6 @@
 #
+# @summary Manage replica install
+#
 class easy_ipa::install::server::replica {
   $replica_install_cmd = "\
 /usr/sbin/ipa-replica-install \

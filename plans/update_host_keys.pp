@@ -1,7 +1,8 @@
 #
-# @summary
-#   Update host keys for a domain-joined node in FreeIPA to match real host
-#   keys. Useful when real keys and keys in IPA device account have gone
+# @summary Update host keys for a domain-joined node in FreeIPA to match real host
+#   keys.
+# 
+# Useful when real keys and keys in IPA device account have gone
 #   out of sync, e.g. due to rebuilding the server from a snapshot.
 #
 #   This gets a kerberos ticket from the IPA server first, then gathers

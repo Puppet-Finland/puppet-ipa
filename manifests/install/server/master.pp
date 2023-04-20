@@ -1,4 +1,6 @@
 #
+# @summary Manage primary server
+#
 class easy_ipa::install::server::master {
   $server_install_cmd = "\
 /usr/sbin/ipa-server-install \

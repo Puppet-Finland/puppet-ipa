@@ -1,13 +1,11 @@
 #
-# == Class: easy_ipa::monit::server
+# @summary Manage easy_ipa::monit::server
 #
 # Monitor FreeIPA server processes using monit
 #
 # This class depends on puppetfinland-monit module
 #
-# == Parameters
-#
-# [*email*]
+# @param email
 #   Email address to send notifications to. Defaults to top-scope variable
 #   $::servermonitor.
 #

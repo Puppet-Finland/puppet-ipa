@@ -1,4 +1,6 @@
 #
+# @summary Manage IPA server install
+#
 class easy_ipa::install::server {
   package { $easy_ipa::params::ipa_server_package_name:
     ensure => present,

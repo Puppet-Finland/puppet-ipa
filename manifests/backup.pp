@@ -1,25 +1,26 @@
 #
-# == Define: easy_ipa::backup
+# @summary Define easy_ipa::backup
 #
 # Backup FreeIPA from cron
 #
-# == Parameters
-#
-# [*title*]
+# @param title
 #   The resource title is used as part of the the name for the cronjob.
-# [*type*]
+# @param type
 #   Backup type. Either 'full' (offline) or 'data' (online).
-# [*timestamp*]
+# @param timestamp
 #   Keep the default timestamp in the backup directory. Valid values are true
 #   (default) and false. Set this to false if you have and external system (e.g.
 #   bacula) that fetches the backups periodically and handles versioning on its
 #   own.
-# [*monthday*]
-# [*weekday*]
-# [*hour*]
-# [*minute*]
-#   These are standard parameters for the cron resource
-# [*email*]
+# @param monthday
+#   Standard parameter for the cron resource.
+# @param weekday
+#   Standard parameter for the cron resource.
+# @param hour
+#   Standard parameter for the cron resource.
+# @param minute
+#   Standard parameter for the cron resource
+# @param email
 #   Email to send cron notifications to. Defaults to $::servermonitor.
 #
 define easy_ipa::backup (
