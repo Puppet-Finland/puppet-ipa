@@ -1,4 +1,6 @@
 #
+# @summary Manage IPA server install
+#
 class easy_ipa::install::server {
   package { $easy_ipa::params::ipa_server_package_name:
     ensure => present,
@@ -15,6 +17,32 @@ class easy_ipa::install::server {
   }
 
   $server_install_cmd_opts_idstart = "--idstart=${easy_ipa::idstart}"
+
+  # Newer installers clash with both default UID_MAX and GID_MAX
+  # Note: SUB_* only affect user/group mapping in containers, so not of
+  # concern here
+  if $easy_ipa::adjust_login_defs {
+    if $easy_ipa::idstart < $facts['uid_max'] {
+      $uid_max_value = $easy_ipa::idstart -1
+    }
+    if $easy_ipa::idstart < $facts['gid_max'] {
+      $gid_max_value = $easy_ipa::idstart -1
+    }
+    file_line {
+      default:
+        path    => '/etc/login.defs',
+        replace => true,
+        ;
+      'adjust uid max':
+        line  => "UID_MAX\t${uid_max_value}",
+        match => '^UID_MAX.*$',
+        ;
+      'adjust gid max':
+        line  => "GID_MAX\t${gid_max_value}",
+        match => '^GID_MAX.*$',
+        ;
+    }
+  }
 
   $server_install_cmd_opts_idmax = $easy_ipa::idmax ? {
     undef   => '',

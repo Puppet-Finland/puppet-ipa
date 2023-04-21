@@ -1,7 +1,5 @@
 #
-# == Class: easy_ipa::install::client::manual
-#
-# "Manual" configuration of hosts which don't have the freeipa-client package
+# @summary "Manual" configuration of hosts which don't have the freeipa-client package.
 #
 class easy_ipa::install::client::manual {
   # Generate LDAP base DN from the domain (e.g. dc=vagrant,dc=example,dc=lan)

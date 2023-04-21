@@ -1,5 +1,5 @@
 #
-# == Class: easy_ipa::params
+# @summary Prevent havoc on unsupported operating systems.
 #
 # Traditionally this file would be used to abstract away operating system
 # differences. Right now the main purpose is to prevent easy_ipa classes from

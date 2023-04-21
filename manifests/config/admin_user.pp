@@ -1,4 +1,6 @@
 #
+# @summary Manage admin user
+#
 class easy_ipa::config::admin_user {
   $uid_number = $easy_ipa::idstart
   $home_dir_path = '/home/admin'

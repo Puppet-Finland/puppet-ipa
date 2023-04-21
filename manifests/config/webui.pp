@@ -18,33 +18,38 @@ class easy_ipa::config::webui {
       'G',
     )
 
-    exec { 'semanage-port-http_port_t':
-      command => "semanage port -a -t http_port_t -p tcp ${proxy_https_port}",
-      unless  => "semanage port -l|grep -E \"^http_port_t.*tcp.*${proxy_https_port}\"",
-      path    => ['/bin','/sbin','/usr/bin','/usr/sbin'],
-    }
+    # IPA switched to mod_ssl as the crypto engine for Apache as of version 4.7.0
+    # see https://www.freeipa.org/page/Releases/4.7.0#Highlights_in_4.7.0
+    # These are not needed for versions newer than 4.7.10
+    if versioncmp($facts['ipa_server_version'], '4.7.0') < 0 {
+      exec { 'semanage-port-http_port_t':
+        command => "semanage port -a -t http_port_t -p tcp ${proxy_https_port}",
+        unless  => "semanage port -l|grep -E \"^http_port_t.*tcp.*${proxy_https_port}\"",
+        path    => ['/bin','/sbin','/usr/bin','/usr/sbin'],
+      }
 
-    file_line { 'webui_additional_https_port_listener':
-      ensure => present,
-      path   => '/etc/httpd/conf.d/nss.conf',
-      line   => "Listen ${proxy_https_port}",
-      after  => 'Listen\ 443',
-      notify => Service['httpd'],
-    }
+      file_line { 'webui_additional_https_port_listener':
+        ensure => present,
+        path   => '/etc/httpd/conf.d/nss.conf',
+        line   => "Listen ${proxy_https_port}",
+        after  => 'Listen\ 443',
+        notify => Service['httpd'],
+      }
 
-    file { '/etc/httpd/conf.d/ipa-rewrite.conf':
-      ensure  => file,
-      replace => true,
-      content => template('easy_ipa/ipa-rewrite.conf.erb'),
-      notify  => Service['httpd'],
-    }
+      file { '/etc/httpd/conf.d/ipa-rewrite.conf':
+        ensure  => file,
+        replace => true,
+        content => template('easy_ipa/ipa-rewrite.conf.erb'),
+        notify  => Service['httpd'],
+      }
 
-    file { '/etc/httpd/conf.d/ipa-webui-proxy.conf':
-      ensure  => file,
-      replace => true,
-      content => template('easy_ipa/ipa-webui-proxy.conf.erb'),
-      notify  => Service['httpd'],
-      require => Exec['semanage-port-http_port_t'],
+      file { '/etc/httpd/conf.d/ipa-webui-proxy.conf':
+        ensure  => file,
+        replace => true,
+        content => template('easy_ipa/ipa-webui-proxy.conf.erb'),
+        notify  => Service['httpd'],
+        require => Exec['semanage-port-http_port_t'],
+      }
     }
   }
 

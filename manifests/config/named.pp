@@ -1,9 +1,6 @@
-# == Define: easy_ipa::config::named
 #
-# Add custom named.conf fragment
+# @summary Add custom named.conf fragment.
 #
-# Parameters
-# ----------
 # @param basename
 #     (string) Basename of the configuration fragment, without the ".conf" at the end. Defaults to $title.
 # @param content

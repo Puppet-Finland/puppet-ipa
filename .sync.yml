@@ -12,3 +12,8 @@
   delete: true
 .github/SECURITY.md:
   delete: true
+
+Gemfile:
+  required:
+    ':development':
+      - gem: github_changelog_generator

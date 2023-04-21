@@ -1,8 +1,8 @@
 #
-# == Class: easy_ipa::named
+# @summary Prepare the integrated named-pkcs11 service for local configuration
+# fragments.
 #
-# Prepare the integrated named-pkcs11 service for local configuration
-# fragments. This is only supposed to work on RHEL/CentOS.
+# This is only supposed to work on RHEL/CentOS.
 #
 class easy_ipa::named {
   include easy_ipa::params

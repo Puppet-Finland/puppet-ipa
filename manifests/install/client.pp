@@ -1,4 +1,6 @@
 #
+# @summary Manage ipa client
+#
 class easy_ipa::install::client {
   package { 'ipa-client':
     ensure => $easy_ipa::params::ipa_client_package_ensure,

@@ -1,4 +1,6 @@
 #
+# @summary Manage cache flushing
+#
 define easy_ipa::helpers::flushcache {
   #TODO: nscd should be called on both platforms.
   if $::facts['os']['family'] == 'RedHat' {

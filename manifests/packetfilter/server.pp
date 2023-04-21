@@ -1,7 +1,5 @@
 #
-# == Class: easy_ipa::packetfilter::server
-#
-# Install packet filtering rules for FreeIPA
+# @summary Install packet filtering rules for FreeIPA.
 #
 # @param allow_address_ipv4
 #   IPv4 address to allow access from.

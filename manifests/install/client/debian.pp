@@ -1,8 +1,7 @@
 #
-# == Class: easy_ipa::install::client::debian
-#
-# Ensure that home directories get created on Debian and Ubuntu clients. This
-# code is needed as the --mkhomedir parameter passed to ipa-client-install does
+# @summary Ensure that home directories get created on Debian and Ubuntu clients.
+# 
+# This code is needed as the --mkhomedir parameter passed to ipa-client-install does
 # not configure PAM even though it does install the required packages.
 #
 # Currently Ubuntu 14.04/16.04 and Debian 8/9 are supported.
