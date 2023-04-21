@@ -22,8 +22,8 @@
 * [`easy_ipa::install::sssd`](#easy_ipa--install--sssd): Manage sssd install
 * [`easy_ipa::monit::server`](#easy_ipa--monit--server): Manage easy_ipa::monit::server
 * [`easy_ipa::named`](#easy_ipa--named): Prepare the integrated named-pkcs11 service for local configuration
-* [`easy_ipa::packetfilter::server`](#easy_ipa--packetfilter--server): == Class: easy_ipa::packetfilter::server  Install packet filtering rules for FreeIPA
-* [`easy_ipa::params`](#easy_ipa--params): == Class: easy_ipa::params  Traditionally this file would be used to abstract away operating system differences. Right now the main purpose i
+* [`easy_ipa::packetfilter::server`](#easy_ipa--packetfilter--server): Install packet filtering rules for FreeIPA.
+* [`easy_ipa::params`](#easy_ipa--params): Prevent havoc on unsupported operating systems.
 
 #### Private Classes
 
@@ -32,7 +32,7 @@
 ### Defined types
 
 * [`easy_ipa::backup`](#easy_ipa--backup): Define easy_ipa::backup
-* [`easy_ipa::config::named`](#easy_ipa--config--named): == Define: easy_ipa::config::named  Add custom named.conf fragment  Parameters ----------
+* [`easy_ipa::config::named`](#easy_ipa--config--named): Add custom named.conf fragment.
 * [`easy_ipa::helpers::flushcache`](#easy_ipa--helpers--flushcache): Manage cache flushing
 
 ### Plans
@@ -544,9 +544,7 @@ This is only supposed to work on RHEL/CentOS.
 
 ### <a name="easy_ipa--packetfilter--server"></a>`easy_ipa::packetfilter::server`
 
-== Class: easy_ipa::packetfilter::server
-
-Install packet filtering rules for FreeIPA
+Install packet filtering rules for FreeIPA.
 
 #### Parameters
 
@@ -572,8 +570,6 @@ IPv6 address to allow access from.
 Default value: `'::1'`
 
 ### <a name="easy_ipa--params"></a>`easy_ipa::params`
-
-== Class: easy_ipa::params
 
 Traditionally this file would be used to abstract away operating system
 differences. Right now the main purpose is to prevent easy_ipa classes from
@@ -658,12 +654,7 @@ Default value: `$facts['servermonitor']`
 
 ### <a name="easy_ipa--config--named"></a>`easy_ipa::config::named`
 
-== Define: easy_ipa::config::named
-
-Add custom named.conf fragment
-
-Parameters
-----------
+Add custom named.conf fragment.
 
 #### Parameters
 
