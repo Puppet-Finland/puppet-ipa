@@ -8,20 +8,20 @@
 
 #### Public Classes
 
-* [`easy_ipa`](#easy_ipa): == Class: ipa  Manages IPA masters, replicas and clients.  Parameters ---------- TODO: Allow creation of root zone for isolated networks -- h
+* [`easy_ipa`](#easy_ipa): Manages IPA masters, replicas and clients.
 * [`easy_ipa::config::admin_user`](#easy_ipa--config--admin_user): Manage admin user
 * [`easy_ipa::config::webui`](#easy_ipa--config--webui): Configures port and redirect overrides for the IPA server web UI.
 * [`easy_ipa::install`](#easy_ipa--install): Manage easy_ipa install
 * [`easy_ipa::install::autofs`](#easy_ipa--install--autofs): Manage autofs
 * [`easy_ipa::install::client`](#easy_ipa--install--client): Manage ipa client
-* [`easy_ipa::install::client::debian`](#easy_ipa--install--client--debian): == Class: easy_ipa::install::client::debian  Ensure that home directories get created on Debian and Ubuntu clients. This code is needed as th
-* [`easy_ipa::install::client::manual`](#easy_ipa--install--client--manual): == Class: easy_ipa::install::client::manual  "Manual" configuration of hosts which don't have the freeipa-client package
+* [`easy_ipa::install::client::debian`](#easy_ipa--install--client--debian): Ensure that home directories get created on Debian and Ubuntu clients.
+* [`easy_ipa::install::client::manual`](#easy_ipa--install--client--manual): "Manual" configuration of hosts which don't have the freeipa-client package.
 * [`easy_ipa::install::server`](#easy_ipa--install--server): Manage IPA server install
 * [`easy_ipa::install::server::master`](#easy_ipa--install--server--master): Manage primary server
 * [`easy_ipa::install::server::replica`](#easy_ipa--install--server--replica): Manage replica install
 * [`easy_ipa::install::sssd`](#easy_ipa--install--sssd): Manage sssd install
 * [`easy_ipa::monit::server`](#easy_ipa--monit--server): Manage easy_ipa::monit::server
-* [`easy_ipa::named`](#easy_ipa--named): == Class: easy_ipa::named  Prepare the integrated named-pkcs11 service for local configuration fragments. This is only supposed to work on RH
+* [`easy_ipa::named`](#easy_ipa--named): Prepare the integrated named-pkcs11 service for local configuration
 * [`easy_ipa::packetfilter::server`](#easy_ipa--packetfilter--server): == Class: easy_ipa::packetfilter::server  Install packet filtering rules for FreeIPA
 * [`easy_ipa::params`](#easy_ipa--params): == Class: easy_ipa::params  Traditionally this file would be used to abstract away operating system differences. Right now the main purpose i
 
@@ -44,12 +44,6 @@ keys.
 
 ### <a name="easy_ipa"></a>`easy_ipa`
 
-== Class: ipa
-
-Manages IPA masters, replicas and clients.
-
-Parameters
-----------
 TODO: Allow creation of root zone for isolated networks -- https://www.freeipa.org/page/Howto/DNS_in_isolated_networks
 TODO: Class comments.
 TODO: Dependencies and metadata updates.
@@ -496,19 +490,14 @@ Manage ipa client
 
 ### <a name="easy_ipa--install--client--debian"></a>`easy_ipa::install::client::debian`
 
-== Class: easy_ipa::install::client::debian
-
-Ensure that home directories get created on Debian and Ubuntu clients. This
-code is needed as the --mkhomedir parameter passed to ipa-client-install does
+This code is needed as the --mkhomedir parameter passed to ipa-client-install does
 not configure PAM even though it does install the required packages.
 
 Currently Ubuntu 14.04/16.04 and Debian 8/9 are supported.
 
 ### <a name="easy_ipa--install--client--manual"></a>`easy_ipa::install::client::manual`
 
-== Class: easy_ipa::install::client::manual
-
-"Manual" configuration of hosts which don't have the freeipa-client package
+"Manual" configuration of hosts which don't have the freeipa-client package.
 
 ### <a name="easy_ipa--install--server"></a>`easy_ipa::install::server`
 
@@ -549,10 +538,9 @@ Default value: `$facts['servermonitor']`
 
 ### <a name="easy_ipa--named"></a>`easy_ipa::named`
 
-== Class: easy_ipa::named
+fragments.
 
-Prepare the integrated named-pkcs11 service for local configuration
-fragments. This is only supposed to work on RHEL/CentOS.
+This is only supposed to work on RHEL/CentOS.
 
 ### <a name="easy_ipa--packetfilter--server"></a>`easy_ipa::packetfilter::server`
 

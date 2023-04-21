@@ -1,9 +1,5 @@
-# == Class: ipa
+# @summary Manages IPA masters, replicas and clients.
 #
-# Manages IPA masters, replicas and clients.
-#
-# Parameters
-# ----------
 # @param manage
 #      (boolean) Manage easy_ipa with Puppet. Defaults to true. Setting this to
 #                to false is useful when a handful of hosts have unsupported
