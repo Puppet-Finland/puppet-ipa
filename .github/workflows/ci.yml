@@ -1,16 +1,10 @@
----
-# Managed by modulesync - DO NOT EDIT
-# https://voxpupuli.org/docs/updating-files-managed-with-modulesync/
-
-name: CI
+name: "ci"
 
 on: pull_request
-
-concurrency:
-  group: ${{ github.ref_name }}
-  cancel-in-progress: true
-
+    
 jobs:
-  puppet:
-    name: Puppet
-    uses: voxpupuli/gha-puppet/.github/workflows/basic.yml@v1
+  Spec:
+    uses: "puppetlabs/cat-github-actions/.github/workflows/module_ci.yml@main"
+    with:
+      runs_on: "ubuntu-20.04"
+    secrets: "inherit"
