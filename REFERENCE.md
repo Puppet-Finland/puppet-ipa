@@ -92,7 +92,6 @@ The following parameters are available in the `easy_ipa` class:
 * [`realm`](#-easy_ipa--realm)
 * [`server_install_ldaputils`](#-easy_ipa--server_install_ldaputils)
 * [`webui_enable_proxy`](#-easy_ipa--webui_enable_proxy)
-* [`webui_force_https`](#-easy_ipa--webui_force_https)
 * [`webui_proxy_external_fqdn`](#-easy_ipa--webui_proxy_external_fqdn)
 * [`webui_proxy_https_port`](#-easy_ipa--webui_proxy_https_port)
 * [`adjust_login_defs`](#-easy_ipa--adjust_login_defs)
@@ -413,16 +412,6 @@ Data type: `Boolean`
 
 (boolean) If true, then httpd is configured to act as a reverse proxy for the IPA Web UI. This allows
           for the Web UI to be accessed from different ports and hostnames than the default.
-
-Default value: `false`
-
-##### <a name="-easy_ipa--webui_force_https"></a>`webui_force_https`
-
-Data type: `Boolean`
-
-(boolean) If true, then /etc/httpd/conf.d/ipa-rewrite.conf is modified to force all connections to https.
-          This is necessary to allow the WebUI to be accessed behind a reverse proxy when using nonstandard
-          ports.
 
 Default value: `false`
 

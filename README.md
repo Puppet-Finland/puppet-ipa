@@ -41,7 +41,6 @@ class {'easy_ipa':
     manage_host_entry           => true,
     install_epel                => true,
     webui_enable_proxy          => true,
-    webui_force_https           => true,
 }
 ```
 
@@ -276,11 +275,6 @@ Suppress setting Negotiate headers based on BrowserMatch. Not sending these head
 #### `webui_enable_proxy`
 If true, then httpd is configured to act as a reverse proxy for the IPA Web UI. This allows
 for the Web UI to be accessed from different ports and hostnames than the default.
-
-#### `webui_force_https`
-If true, then /etc/httpd/conf.d/ipa-rewrite.conf is modified to force all connections to https.
-This is necessary to allow the WebUI to be accessed behind a reverse proxy when using nonstandard
-ports.
 
 #### `webui_proxy_external_fqdn`
 The public or external FQDN used to access the IPA Web UI behind the reverse proxy.

@@ -131,11 +131,6 @@
 #      (boolean) If true, then httpd is configured to act as a reverse proxy for the IPA Web UI. This allows
 #                for the Web UI to be accessed from different ports and hostnames than the default.
 #
-# @param webui_force_https
-#      (boolean) If true, then /etc/httpd/conf.d/ipa-rewrite.conf is modified to force all connections to https.
-#                This is necessary to allow the WebUI to be accessed behind a reverse proxy when using nonstandard
-#                ports.
-#
 # @param webui_proxy_external_fqdn
 #      (string) The public or external FQDN used to access the IPA Web UI behind the reverse proxy.
 #
@@ -190,7 +185,6 @@ class easy_ipa (
   Optional[Stdlib::Fqdn] $realm                    = undef,
   Boolean $server_install_ldaputils                = true,
   Boolean $webui_enable_proxy                      = false,
-  Boolean $webui_force_https                       = false,
   String $webui_proxy_external_fqdn                = 'localhost',
   String $webui_proxy_https_port                   = '8440',
   Boolean $adjust_login_defs                       = false,
