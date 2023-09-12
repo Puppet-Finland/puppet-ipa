@@ -40,7 +40,6 @@ class {'easy_ipa':
     enable_hostname             => true,
     manage_host_entry           => true,
     install_epel                => true,
-    webui_disable_kerberos      => true,
     webui_enable_proxy          => true,
     webui_force_https           => true,
 }

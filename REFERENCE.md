@@ -91,7 +91,6 @@ The following parameters are available in the `easy_ipa` class:
 * [`no_ui_redirect`](#-easy_ipa--no_ui_redirect)
 * [`realm`](#-easy_ipa--realm)
 * [`server_install_ldaputils`](#-easy_ipa--server_install_ldaputils)
-* [`webui_disable_kerberos`](#-easy_ipa--webui_disable_kerberos)
 * [`webui_enable_proxy`](#-easy_ipa--webui_enable_proxy)
 * [`webui_force_https`](#-easy_ipa--webui_force_https)
 * [`webui_proxy_external_fqdn`](#-easy_ipa--webui_proxy_external_fqdn)
@@ -407,14 +406,6 @@ Data type: `Boolean`
 (boolean) If true, then the ldaputils packages are installed if ipa_role is not set to client.
 
 Default value: `true`
-
-##### <a name="-easy_ipa--webui_disable_kerberos"></a>`webui_disable_kerberos`
-
-Data type: `Boolean`
-
-Disable webui kerberos.
-
-Default value: `false`
 
 ##### <a name="-easy_ipa--webui_enable_proxy"></a>`webui_enable_proxy`
 

@@ -127,9 +127,6 @@
 # @param server_install_ldaputils
 #      (boolean) If true, then the ldaputils packages are installed if ipa_role is not set to client.
 #
-# @param webui_disable_kerberos
-#       Disable webui kerberos.
-#
 # @param webui_enable_proxy
 #      (boolean) If true, then httpd is configured to act as a reverse proxy for the IPA Web UI. This allows
 #                for the Web UI to be accessed from different ports and hostnames than the default.
@@ -192,7 +189,6 @@ class easy_ipa (
   Boolean $no_ui_redirect                          = false,
   Optional[Stdlib::Fqdn] $realm                    = undef,
   Boolean $server_install_ldaputils                = true,
-  Boolean $webui_disable_kerberos                  = false,
   Boolean $webui_enable_proxy                      = false,
   Boolean $webui_force_https                       = false,
   String $webui_proxy_external_fqdn                = 'localhost',
