@@ -4,8 +4,8 @@ fixtures:
     cron_core:
       repo: "puppetlabs/cron_core"
       ref: "1.0.0"
-      puppet_version: ">= 6.0.0"
+      puppet_version: ">= 7.0.0"
     k5login_core:
       repo: "puppetlabs/k5login_core"
       ref: "1.0.2"
-      puppet_version: ">= 6.0.0"
+      puppet_version: ">= 7.0.0"
