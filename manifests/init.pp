@@ -108,9 +108,6 @@
 # @param ipa_master_fqdn
 #      (string) FQDN of the server to use for a client or replica domain join.
 #
-# @param manage_host_entry
-#      (boolean) If true, then a host entry is created using the parameters 'ipa_server_fqdn' and 'ip_address'.
-#
 # @param mkhomedir
 #      (boolean) If true, then the parameter '--mkhomedir' is passed to the IPA server and client
 #      installers.
@@ -172,7 +169,6 @@ class easy_ipa (
   Optional[Stdlib::IP::Address] $ip_address        = undef,
   String $ipa_server_fqdn                          = $facts['networking']['fqdn'],
   Optional[Stdlib::Fqdn] $ipa_master_fqdn          = undef,
-  Boolean $manage_host_entry                       = false,
   Boolean $mkhomedir                               = true,
   Boolean $no_ui_redirect                          = false,
   Optional[Stdlib::Fqdn] $realm                    = undef,

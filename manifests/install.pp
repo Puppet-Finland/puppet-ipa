@@ -10,12 +10,6 @@ class easy_ipa::install {
     )
   }
 
-  if $easy_ipa::manage_host_entry {
-    host { $easy_ipa::ipa_server_fqdn:
-      ip => $easy_ipa::ip_address,
-    }
-  }
-
   # Note: sssd.conf handled by ipa-server-install.
   if $easy_ipa::install_sssd {
     contain 'easy_ipa::install::sssd'

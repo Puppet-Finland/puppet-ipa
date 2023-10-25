@@ -83,7 +83,6 @@ The following parameters are available in the `easy_ipa` class:
 * [`ip_address`](#-easy_ipa--ip_address)
 * [`ipa_server_fqdn`](#-easy_ipa--ipa_server_fqdn)
 * [`ipa_master_fqdn`](#-easy_ipa--ipa_master_fqdn)
-* [`manage_host_entry`](#-easy_ipa--manage_host_entry)
 * [`mkhomedir`](#-easy_ipa--mkhomedir)
 * [`no_ui_redirect`](#-easy_ipa--no_ui_redirect)
 * [`realm`](#-easy_ipa--realm)
@@ -352,14 +351,6 @@ Data type: `Optional[Stdlib::Fqdn]`
 (string) FQDN of the server to use for a client or replica domain join.
 
 Default value: `undef`
-
-##### <a name="-easy_ipa--manage_host_entry"></a>`manage_host_entry`
-
-Data type: `Boolean`
-
-(boolean) If true, then a host entry is created using the parameters 'ipa_server_fqdn' and 'ip_address'.
-
-Default value: `false`
 
 ##### <a name="-easy_ipa--mkhomedir"></a>`mkhomedir`
 

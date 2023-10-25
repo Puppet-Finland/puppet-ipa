@@ -3,12 +3,6 @@
 class easy_ipa::validate_params {
   assert_private()
 
-  if $easy_ipa::manage_host_entry {
-    unless $easy_ipa::ip_address {
-      fail('When using the parameter manage_host_entry, the parameter ip_address is mandatory.')
-    }
-  }
-
   if $easy_ipa::idmax and $easy_ipa::idmax < $easy_ipa::idstart {
     fail('Parameter "idmax" must be an integer greater than parameter "idstart".')
   }

@@ -163,14 +163,6 @@ describe 'easy_ipa', type: :class do
           it { is_expected.to raise_error(Puppet::Error, %r{"idmax" must be an integer greater than parameter "idstart"}) }
         end
 
-        context 'with manage_host_entry but not ip_address' do
-          let(:params) do
-            super().merge(manage_host_entry: true)
-          end
-
-          it { is_expected.to raise_error(Puppet::Error, %r{parameter ip_address is mandatory}) }
-        end
-
         context 'without admin_password' do
           let(:params) do
             super().merge(admin_password: nil)
