@@ -33,5 +33,4 @@ class easy_ipa::params {
   $ipa_server_package_name = 'ipa-server'
   $kstart_package_name = 'kstart'
   $sssd_package_name = 'sssd-common'
-  $sssdtools_package_name = 'sssd-tools'
 }

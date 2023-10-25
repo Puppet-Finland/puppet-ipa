@@ -73,7 +73,6 @@ The following parameters are available in the `easy_ipa` class:
 * [`gssapi_no_negotiate`](#-easy_ipa--gssapi_no_negotiate)
 * [`idmax`](#-easy_ipa--idmax)
 * [`install_epel`](#-easy_ipa--install_epel)
-* [`install_sssdtools`](#-easy_ipa--install_sssdtools)
 * [`install_ipa_client`](#-easy_ipa--install_ipa_client)
 * [`install_ipa_server`](#-easy_ipa--install_ipa_server)
 * [`install_sssd`](#-easy_ipa--install_sssd)
@@ -269,14 +268,6 @@ Default value: `undef`
 Data type: `Boolean`
 
 (boolean) If true, then the epel repo is installed. The epel repo is usually required for sssd packages.
-
-Default value: `true`
-
-##### <a name="-easy_ipa--install_sssdtools"></a>`install_sssdtools`
-
-Data type: `Boolean`
-
-(boolean) If true, then the sssdtools packages are installed.
 
 Default value: `true`
 
