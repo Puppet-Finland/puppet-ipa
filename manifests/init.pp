@@ -74,9 +74,6 @@
 # @param idmax
 #      (integer) From the IPA man pages: "The max value for the IDs range (default: idstart+199999)".
 #
-# @param install_epel
-#      (boolean) If true, then the epel repo is installed. The epel repo is usually required for sssd packages.
-#
 # @param install_ipa_client
 #      (boolean) If true, then the IPA client packages are installed if the parameter 'ipa_role' is set to 'client'.
 #
@@ -146,7 +143,6 @@ class easy_ipa (
   Variant[Pattern,Undef] $gssapi_no_negotiate      = undef,
   Integer[10000] $idstart                          = (fqdn_rand('10737') + 10000),
   Variant[Integer,Undef] $idmax                    = undef,
-  Boolean $install_epel                            = true,
   Boolean $install_ipa_client                      = true,
   Boolean $install_ipa_server                      = true,
   Boolean $install_sssd                            = true,

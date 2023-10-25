@@ -1,6 +1,8 @@
-include cron  # easy_ipa needs cron to be installed
+require epel  # provides kstart package on el
+require cron  # easy_ipa needs cron to be installed
 
-class { 'easy_ipa':
+Yumrepo <||>
+-> class { 'easy_ipa':
   ipa_role                    => 'master',
   domain                      => 'rspec.example.lan',
   admin_password              => 'rspecrspec123',

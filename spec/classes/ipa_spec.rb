@@ -66,11 +66,6 @@ describe 'easy_ipa', type: :class do
           it { is_expected.to contain_package('sssd-common') }
 
           it { is_expected.not_to contain_package('ipa-client') }
-
-          case facts[:os]['family']
-          when 'RedHat'
-            it { is_expected.to contain_package('epel-release') }
-          end
         end
 
         context 'with idmax' do
@@ -231,11 +226,6 @@ describe 'easy_ipa', type: :class do
           it { is_expected.to contain_package('sssd-common') }
 
           it { is_expected.not_to contain_package('ipa-client') }
-
-          case facts[:os]['family']
-          when 'RedHat'
-            it { is_expected.to contain_package('epel-release') }
-          end
         end
 
         context 'configure_ssh' do
@@ -334,11 +324,6 @@ describe 'easy_ipa', type: :class do
           it { is_expected.not_to contain_package('ipa-server-dns') }
           it { is_expected.not_to contain_package('bind-dyndb-ldap') }
           it { is_expected.not_to contain_package('ipa-server') }
-
-          case facts[:os]['family']
-          when 'RedHat'
-            it { is_expected.to contain_package('epel-release') }
-          end
         end
 
         context 'configure_ssh' do

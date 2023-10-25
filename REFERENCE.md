@@ -72,7 +72,6 @@ The following parameters are available in the `easy_ipa` class:
 * [`idstart`](#-easy_ipa--idstart)
 * [`gssapi_no_negotiate`](#-easy_ipa--gssapi_no_negotiate)
 * [`idmax`](#-easy_ipa--idmax)
-* [`install_epel`](#-easy_ipa--install_epel)
 * [`install_ipa_client`](#-easy_ipa--install_ipa_client)
 * [`install_ipa_server`](#-easy_ipa--install_ipa_server)
 * [`install_sssd`](#-easy_ipa--install_sssd)
@@ -262,14 +261,6 @@ Data type: `Variant[Integer,Undef]`
 (integer) From the IPA man pages: "The max value for the IDs range (default: idstart+199999)".
 
 Default value: `undef`
-
-##### <a name="-easy_ipa--install_epel"></a>`install_epel`
-
-Data type: `Boolean`
-
-(boolean) If true, then the epel repo is installed. The epel repo is usually required for sssd packages.
-
-Default value: `true`
 
 ##### <a name="-easy_ipa--install_ipa_client"></a>`install_ipa_client`
 

@@ -9,4 +9,5 @@ configure_beaker(modules: :metadata) do |host|
   # https://cstan.io/?p=12175&lang=en
   on host, 'yum update -y'
   install_puppet_module_via_pmt_on(host, 'puppet/cron')
+  install_puppet_module_via_pmt_on(host, 'puppet/epel')
 end

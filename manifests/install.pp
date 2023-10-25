@@ -2,14 +2,6 @@
 # @summary Manage easy_ipa install
 #
 class easy_ipa::install {
-  if $easy_ipa::install_epel and $facts['os']['family'] == 'RedHat' {
-    ensure_resource(
-      'package',
-      'epel-release',
-      { 'ensure' => 'present' },
-    )
-  }
-
   # Note: sssd.conf handled by ipa-server-install.
   if $easy_ipa::install_sssd {
     contain 'easy_ipa::install::sssd'
