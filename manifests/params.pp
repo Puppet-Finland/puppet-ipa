@@ -9,7 +9,6 @@
 class easy_ipa::params {
   case $facts['os']['family'] {
     'RedHat': {
-      $ldaputils_package_name = 'openldap-clients'
       $ipa_client_package_name = 'ipa-client'
       $ipa_client_package_ensure = 'present'
       $named_conf_d = '/etc/named/conf.d'
@@ -20,7 +19,6 @@ class easy_ipa::params {
         /(stretch)/:                                          { $ipa_client_package_ensure = 'absent' }
         default:                                              { fail('ERROR: unsupported operating system') }
       }
-      $ldaputils_package_name = 'ldap-utils'
       $ipa_client_package_name = 'freeipa-client'
     }
     default: {

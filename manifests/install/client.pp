@@ -11,12 +11,6 @@ class easy_ipa::install::client {
     ensure => present,
   }
 
-  if $easy_ipa::client_install_ldaputils {
-    package { $easy_ipa::params::ldaputils_package_name:
-      ensure => present,
-    }
-  }
-
   if $easy_ipa::mkhomedir {
     $client_install_cmd_opts_mkhomedir = '--mkhomedir'
   } else {

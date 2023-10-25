@@ -59,7 +59,6 @@ The following parameters are available in the `easy_ipa` class:
 * [`directory_services_password`](#-easy_ipa--directory_services_password)
 * [`allow_zone_overlap`](#-easy_ipa--allow_zone_overlap)
 * [`no_dnssec_validation`](#-easy_ipa--no_dnssec_validation)
-* [`client_install_ldaputils`](#-easy_ipa--client_install_ldaputils)
 * [`configure_dns_server`](#-easy_ipa--configure_dns_server)
 * [`configure_replica_ca`](#-easy_ipa--configure_replica_ca)
 * [`configure_ntp`](#-easy_ipa--configure_ntp)
@@ -88,7 +87,6 @@ The following parameters are available in the `easy_ipa` class:
 * [`mkhomedir`](#-easy_ipa--mkhomedir)
 * [`no_ui_redirect`](#-easy_ipa--no_ui_redirect)
 * [`realm`](#-easy_ipa--realm)
-* [`server_install_ldaputils`](#-easy_ipa--server_install_ldaputils)
 * [`webui_enable_proxy`](#-easy_ipa--webui_enable_proxy)
 * [`webui_proxy_external_fqdn`](#-easy_ipa--webui_proxy_external_fqdn)
 * [`webui_proxy_https_port`](#-easy_ipa--webui_proxy_https_port)
@@ -151,14 +149,6 @@ Default value: `false`
 Data type: `Boolean`
 
 (boolean) if set to true, DNSSEC validation is disabled.
-
-Default value: `false`
-
-##### <a name="-easy_ipa--client_install_ldaputils"></a>`client_install_ldaputils`
-
-Data type: `Boolean`
-
-(boolean) If true, then the ldaputils packages are installed if ipa_role is set to client.
 
 Default value: `false`
 
@@ -395,14 +385,6 @@ Data type: `Optional[Stdlib::Fqdn]`
 (string) The name of the IPA realm to create or join.
 
 Default value: `undef`
-
-##### <a name="-easy_ipa--server_install_ldaputils"></a>`server_install_ldaputils`
-
-Data type: `Boolean`
-
-(boolean) If true, then the ldaputils packages are installed if ipa_role is not set to client.
-
-Default value: `true`
 
 ##### <a name="-easy_ipa--webui_enable_proxy"></a>`webui_enable_proxy`
 

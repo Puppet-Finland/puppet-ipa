@@ -27,9 +27,6 @@
 # @param no_dnssec_validation
 #      (boolean) if set to true, DNSSEC validation is disabled.
 #
-# @param client_install_ldaputils
-#      (boolean) If true, then the ldaputils packages are installed if ipa_role is set to client.
-#
 # @param configure_dns_server
 #      (boolean) If true, then the parameter '--setup-dns' is passed to the IPA server installer.
 #                Also, triggers the install of the required dns server packages.
@@ -124,9 +121,6 @@
 # @param realm
 #      (string) The name of the IPA realm to create or join.
 #
-# @param server_install_ldaputils
-#      (boolean) If true, then the ldaputils packages are installed if ipa_role is not set to client.
-#
 # @param webui_enable_proxy
 #      (boolean) If true, then httpd is configured to act as a reverse proxy for the IPA Web UI. This allows
 #                for the Web UI to be accessed from different ports and hostnames than the default.
@@ -154,7 +148,6 @@ class easy_ipa (
   Optional[String[8]] $directory_services_password = undef,
   Boolean $allow_zone_overlap                      = false,
   Boolean $no_dnssec_validation                    = false,
-  Boolean $client_install_ldaputils                = false,
   Boolean $configure_dns_server                    = true,
   Boolean $configure_replica_ca                    = false,
   Boolean $configure_ntp                           = true,
@@ -183,7 +176,6 @@ class easy_ipa (
   Boolean $mkhomedir                               = true,
   Boolean $no_ui_redirect                          = false,
   Optional[Stdlib::Fqdn] $realm                    = undef,
-  Boolean $server_install_ldaputils                = true,
   Boolean $webui_enable_proxy                      = false,
   String $webui_proxy_external_fqdn                = 'localhost',
   String $webui_proxy_https_port                   = '8440',

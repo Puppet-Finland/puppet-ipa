@@ -23,12 +23,6 @@ class easy_ipa::install::server {
     ensure => present,
   }
 
-  if $easy_ipa::server_install_ldaputils {
-    package { $easy_ipa::params::ldaputils_package_name:
-      ensure => present,
-    }
-  }
-
   $server_install_cmd_opts_idstart = "--idstart=${easy_ipa::idstart}"
 
   # Newer installers clash with both default UID_MAX and GID_MAX

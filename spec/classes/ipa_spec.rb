@@ -71,9 +71,6 @@ describe 'easy_ipa', type: :class do
           case facts[:os]['family']
           when 'RedHat'
             it { is_expected.to contain_package('epel-release') }
-            it { is_expected.to contain_package('openldap-clients') }
-          when 'Debian'
-            it { is_expected.to contain_package('ldap-utils') }
           end
         end
 
@@ -248,9 +245,6 @@ describe 'easy_ipa', type: :class do
           case facts[:os]['family']
           when 'RedHat'
             it { is_expected.to contain_package('epel-release') }
-            it { is_expected.to contain_package('openldap-clients') }
-          when 'Debian'
-            it { is_expected.to contain_package('ldap-utils') }
           end
         end
 
@@ -355,9 +349,6 @@ describe 'easy_ipa', type: :class do
           case facts[:os]['family']
           when 'RedHat'
             it { is_expected.to contain_package('epel-release') }
-            it { is_expected.not_to contain_package('openldap-clients') }
-          when 'Debian'
-            it { is_expected.not_to contain_package('ldap-utils') }
           end
         end
 
