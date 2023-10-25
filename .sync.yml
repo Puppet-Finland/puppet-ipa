@@ -16,3 +16,7 @@ spec/spec_helper_acceptance.rb:
   delete: true
 .github/SECURITY.md:
   delete: true
+.github/workflows/shellcheck.yaml:
+  delete: true
+.github/workflows/markdownlint.yaml:
+  delete: true
