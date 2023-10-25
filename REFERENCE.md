@@ -11,7 +11,6 @@
 * [`easy_ipa`](#easy_ipa): Manages IPA masters, replicas and clients.
 * [`easy_ipa::config::webui`](#easy_ipa--config--webui): Configures port and redirect overrides for the IPA server web UI.
 * [`easy_ipa::install`](#easy_ipa--install): Manage easy_ipa install
-* [`easy_ipa::install::autofs`](#easy_ipa--install--autofs): Manage autofs
 * [`easy_ipa::install::client`](#easy_ipa--install--client): Manage ipa client
 * [`easy_ipa::install::client::debian`](#easy_ipa--install--client--debian): Ensure that home directories get created on Debian and Ubuntu clients.
 * [`easy_ipa::install::server`](#easy_ipa--install--server): Manage IPA server install
@@ -73,7 +72,6 @@ The following parameters are available in the `easy_ipa` class:
 * [`idstart`](#-easy_ipa--idstart)
 * [`gssapi_no_negotiate`](#-easy_ipa--gssapi_no_negotiate)
 * [`idmax`](#-easy_ipa--idmax)
-* [`install_autofs`](#-easy_ipa--install_autofs)
 * [`install_epel`](#-easy_ipa--install_epel)
 * [`install_sssdtools`](#-easy_ipa--install_sssdtools)
 * [`install_ipa_client`](#-easy_ipa--install_ipa_client)
@@ -266,14 +264,6 @@ Data type: `Variant[Integer,Undef]`
 
 Default value: `undef`
 
-##### <a name="-easy_ipa--install_autofs"></a>`install_autofs`
-
-Data type: `Boolean`
-
-(boolean) If true, then the autofs packages are installed.
-
-Default value: `false`
-
 ##### <a name="-easy_ipa--install_epel"></a>`install_epel`
 
 Data type: `Boolean`
@@ -403,10 +393,6 @@ Configures port and redirect overrides for the IPA server web UI.
 ### <a name="easy_ipa--install"></a>`easy_ipa::install`
 
 Manage easy_ipa install
-
-### <a name="easy_ipa--install--autofs"></a>`easy_ipa::install::autofs`
-
-Manage autofs
 
 ### <a name="easy_ipa--install--client"></a>`easy_ipa::install::client`
 

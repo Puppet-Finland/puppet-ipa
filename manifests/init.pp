@@ -74,9 +74,6 @@
 # @param idmax
 #      (integer) From the IPA man pages: "The max value for the IDs range (default: idstart+199999)".
 #
-# @param install_autofs
-#      (boolean) If true, then the autofs packages are installed.
-#
 # @param install_epel
 #      (boolean) If true, then the epel repo is installed. The epel repo is usually required for sssd packages.
 #
@@ -152,7 +149,6 @@ class easy_ipa (
   Variant[Pattern,Undef] $gssapi_no_negotiate      = undef,
   Integer[10000] $idstart                          = (fqdn_rand('10737') + 10000),
   Variant[Integer,Undef] $idmax                    = undef,
-  Boolean $install_autofs                          = false,
   Boolean $install_epel                            = true,
   Boolean $install_sssdtools                       = true,
   Boolean $install_ipa_client                      = true,
