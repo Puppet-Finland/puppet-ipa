@@ -14,7 +14,6 @@
 * [`easy_ipa::install::autofs`](#easy_ipa--install--autofs): Manage autofs
 * [`easy_ipa::install::client`](#easy_ipa--install--client): Manage ipa client
 * [`easy_ipa::install::client::debian`](#easy_ipa--install--client--debian): Ensure that home directories get created on Debian and Ubuntu clients.
-* [`easy_ipa::install::client::manual`](#easy_ipa--install--client--manual): "Manual" configuration of hosts which don't have the freeipa-client package.
 * [`easy_ipa::install::server`](#easy_ipa--install--server): Manage IPA server install
 * [`easy_ipa::install::server::master`](#easy_ipa--install--server--master): Manage primary server
 * [`easy_ipa::install::server::replica`](#easy_ipa--install--server--replica): Manage replica install
@@ -460,10 +459,6 @@ This code is needed as the --mkhomedir parameter passed to ipa-client-install do
 not configure PAM even though it does install the required packages.
 
 Currently Ubuntu 14.04/16.04 and Debian 8/9 are supported.
-
-### <a name="easy_ipa--install--client--manual"></a>`easy_ipa::install::client::manual`
-
-"Manual" configuration of hosts which don't have the freeipa-client package.
 
 ### <a name="easy_ipa--install--server"></a>`easy_ipa::install::server`
 

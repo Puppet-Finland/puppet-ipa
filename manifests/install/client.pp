@@ -70,9 +70,6 @@ class easy_ipa::install::client {
   ${easy_ipa::opt_no_sshd} \
   --unattended"
 
-  # Some platforms require "manual" setup as they don't have the freeipa-client
-  # package.
-  #
   if $easy_ipa::params::ipa_client_package_ensure == 'present' {
     exec { "client_install_${facts['networking']['fqdn']}":
       command   => $client_install_cmd,
@@ -84,8 +81,6 @@ class easy_ipa::install::client {
       provider  => 'shell',
       require   => Package['ipa-client'],
     }
-  } else {
-    contain easy_ipa::install::client::manual
   }
 
   if $facts['os']['family'] == 'Debian' and $easy_ipa::mkhomedir {
