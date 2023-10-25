@@ -19,7 +19,6 @@
 * [`easy_ipa::install::server::master`](#easy_ipa--install--server--master): Manage primary server
 * [`easy_ipa::install::server::replica`](#easy_ipa--install--server--replica): Manage replica install
 * [`easy_ipa::install::sssd`](#easy_ipa--install--sssd): Manage sssd install
-* [`easy_ipa::monit::server`](#easy_ipa--monit--server): Manage easy_ipa::monit::server
 * [`easy_ipa::named`](#easy_ipa--named): Prepare the integrated named-pkcs11 service for local configuration
 * [`easy_ipa::packetfilter::server`](#easy_ipa--packetfilter--server): Install packet filtering rules for FreeIPA.
 * [`easy_ipa::params`](#easy_ipa--params): Prevent havoc on unsupported operating systems.
@@ -481,27 +480,6 @@ Manage replica install
 ### <a name="easy_ipa--install--sssd"></a>`easy_ipa::install::sssd`
 
 Manage sssd install
-
-### <a name="easy_ipa--monit--server"></a>`easy_ipa::monit::server`
-
-Monitor FreeIPA server processes using monit
-
-This class depends on puppetfinland-monit module
-
-#### Parameters
-
-The following parameters are available in the `easy_ipa::monit::server` class:
-
-* [`email`](#-easy_ipa--monit--server--email)
-
-##### <a name="-easy_ipa--monit--server--email"></a>`email`
-
-Data type: `String`
-
-Email address to send notifications to. Defaults to top-scope variable
-$::servermonitor.
-
-Default value: `$facts['servermonitor']`
 
 ### <a name="easy_ipa--named"></a>`easy_ipa::named`
 

@@ -1,5 +1,0 @@
-### THIS FILE IS MANAGED BY PUPPET. ANY MANUAL CHANGES WILL GET OVERWRITTEN.
-#
-check program ipa with path <%= scope['::monit::params::fragment_dir'] %>/ipa.sh timeout 30 seconds
-   if status != 0 then alert
-   alert <%= scope['::easy_ipa::monit::server::email'] %>
