@@ -211,19 +211,22 @@ class easy_ipa (
       default => '--no-sshd',
     }
 
-    if $adjust_login_defs {
+    if $easy_ipa::adjust_login_defs {
+      $uid_max_value = $easy_ipa::idstart -1
+      $gid_max_value = $easy_ipa::idstart -1
+
       file_line {
         default:
           path    => '/etc/login.defs',
           replace => true,
           ;
         'adjust uid max':
-          line  => "UID_MAX\t11999",
-          match => '^UID_MAX\s*60000$',
+          line  => "UID_MAX\t${uid_max_value}",
+          match => '^UID_MAX.*$',
           ;
         'adjust gid max':
-          line  => "GID_MAX\t11999",
-          match => '^GID_MAX\s*60000$',
+          line  => "GID_MAX\t${gid_max_value}",
+          match => '^GID_MAX.*$',
           ;
       }
     }
