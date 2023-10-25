@@ -52,7 +52,6 @@ TODO: configurable admin username.
 
 The following parameters are available in the `easy_ipa` class:
 
-* [`manage`](#-easy_ipa--manage)
 * [`domain`](#-easy_ipa--domain)
 * [`ipa_role`](#-easy_ipa--ipa_role)
 * [`admin_password`](#-easy_ipa--admin_password)
@@ -90,19 +89,6 @@ The following parameters are available in the `easy_ipa` class:
 * [`webui_proxy_external_fqdn`](#-easy_ipa--webui_proxy_external_fqdn)
 * [`webui_proxy_https_port`](#-easy_ipa--webui_proxy_https_port)
 * [`adjust_login_defs`](#-easy_ipa--adjust_login_defs)
-
-##### <a name="-easy_ipa--manage"></a>`manage`
-
-Data type: `Boolean`
-
-(boolean) Manage easy_ipa with Puppet. Defaults to true. Setting this to
-          to false is useful when a handful of hosts have unsupported
-          operating systems and you'd rather exclude them from FreeIPA
-          instead of including the others individually. Use this with
-          a separate Hiera level (e.g. $::lsbdistcodename) for maximum
-          convenience.
-
-Default value: `true`
 
 ##### <a name="-easy_ipa--domain"></a>`domain`
 

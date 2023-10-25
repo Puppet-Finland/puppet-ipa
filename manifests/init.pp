@@ -1,12 +1,5 @@
 # @summary Manages IPA masters, replicas and clients.
 #
-# @param manage
-#      (boolean) Manage easy_ipa with Puppet. Defaults to true. Setting this to
-#                to false is useful when a handful of hosts have unsupported
-#                operating systems and you'd rather exclude them from FreeIPA
-#                instead of including the others individually. Use this with
-#                a separate Hiera level (e.g. $::lsbdistcodename) for maximum
-#                convenience.
 # @param domain
 #      (string) The name of the IPA domain to create or join.
 # @param ipa_role
@@ -140,7 +133,6 @@
 class easy_ipa (
   Stdlib::Fqdn $domain,
   Enum['client', 'master', 'replica'] $ipa_role,
-  Boolean $manage                                  = true,
   Optional[String[8]] $admin_password              = undef,
   Optional[String[8]] $directory_services_password = undef,
   Boolean $allow_zone_overlap                      = false,
@@ -177,57 +169,55 @@ class easy_ipa (
   String $webui_proxy_https_port                   = '8440',
   Boolean $adjust_login_defs                       = false,
 ) {
-  if $manage {
-    # Include per-OS parameters and fail on unsupported OS
-    include easy_ipa::params
+  # Include per-OS parameters and fail on unsupported OS
+  include easy_ipa::params
 
-    $final_realm = $realm ? {
-      undef   => upcase($domain),
-      default => $realm,
-    }
-
-    $final_domain_join_password = $domain_join_password ? {
-      undef   => $directory_services_password,
-      default => $domain_join_password,
-    }
-
-    if $ipa_role == 'client' {
-      $final_configure_dns_server = false
-    } else {
-      $final_configure_dns_server = $configure_dns_server
-    }
-
-    $opt_no_ssh = $configure_ssh ? {
-      true    => '',
-      default => '--no-ssh',
-    }
-
-    $opt_no_sshd = $configure_sshd ? {
-      true    => '',
-      default => '--no-sshd',
-    }
-
-    if $easy_ipa::adjust_login_defs {
-      $uid_max_value = $easy_ipa::idstart -1
-      $gid_max_value = $easy_ipa::idstart -1
-
-      file_line {
-        default:
-          path    => '/etc/login.defs',
-          replace => true,
-          ;
-        'adjust uid max':
-          line  => "UID_MAX\t${uid_max_value}",
-          match => '^UID_MAX.*$',
-          ;
-        'adjust gid max':
-          line  => "GID_MAX\t${gid_max_value}",
-          match => '^GID_MAX.*$',
-          ;
-      }
-    }
-
-    require easy_ipa::validate_params
-    contain easy_ipa::install
+  $final_realm = $realm ? {
+    undef   => upcase($domain),
+    default => $realm,
   }
+
+  $final_domain_join_password = $domain_join_password ? {
+    undef   => $directory_services_password,
+    default => $domain_join_password,
+  }
+
+  if $ipa_role == 'client' {
+    $final_configure_dns_server = false
+  } else {
+    $final_configure_dns_server = $configure_dns_server
+  }
+
+  $opt_no_ssh = $configure_ssh ? {
+    true    => '',
+    default => '--no-ssh',
+  }
+
+  $opt_no_sshd = $configure_sshd ? {
+    true    => '',
+    default => '--no-sshd',
+  }
+
+  if $easy_ipa::adjust_login_defs {
+    $uid_max_value = $easy_ipa::idstart -1
+    $gid_max_value = $easy_ipa::idstart -1
+
+    file_line {
+      default:
+        path    => '/etc/login.defs',
+        replace => true,
+        ;
+      'adjust uid max':
+        line  => "UID_MAX\t${uid_max_value}",
+        match => '^UID_MAX.*$',
+        ;
+      'adjust gid max':
+        line  => "GID_MAX\t${gid_max_value}",
+        match => '^GID_MAX.*$',
+        ;
+    }
+  }
+
+  require easy_ipa::validate_params
+  contain easy_ipa::install
 }
