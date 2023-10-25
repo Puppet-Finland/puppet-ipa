@@ -29,12 +29,9 @@ class easy_ipa::install::server {
   # Note: SUB_* only affect user/group mapping in containers, so not of
   # concern here
   if $easy_ipa::adjust_login_defs {
-    if $easy_ipa::idstart < $facts['uid_max'] {
-      $uid_max_value = $easy_ipa::idstart -1
-    }
-    if $easy_ipa::idstart < $facts['gid_max'] {
-      $gid_max_value = $easy_ipa::idstart -1
-    }
+    $uid_max_value = $easy_ipa::idstart -1
+    $gid_max_value = $easy_ipa::idstart -1
+
     file_line {
       default:
         path    => '/etc/login.defs',
