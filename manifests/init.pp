@@ -173,7 +173,7 @@ class easy_ipa (
   Boolean $configure_sshd                          = true,
   Array[String] $custom_dns_forwarders             = [],
   String[1] $domain_join_principal                 = 'admin',
-  Optional[String[1]] $domain_join_password        = undef,
+  Optional[String[1]] $domain_join_password        = $directory_services_password,
   Boolean $enable_dns_updates                      = false,
   Boolean $enable_hostname                         = true,
   Boolean $enable_ip_address                       = false,
@@ -218,11 +218,6 @@ class easy_ipa (
       ),
       "@${final_realm}"
     )
-
-    $final_domain_join_password = $domain_join_password ? {
-      undef   => $directory_services_password,
-      default => $domain_join_password,
-    }
 
     if $ipa_role == 'client' {
       $final_configure_dns_server = false
