@@ -14,7 +14,7 @@ class easy_ipa::validate_params {
   }
 
   if $easy_ipa::ipa_role != 'master' { # if replica or client
-    unless $easy_ipa::final_domain_join_password {
+    unless $easy_ipa::domain_join_password {
       fail("When creating a ${easy_ipa::ipa_role} the parameter named domain_join_password cannot be empty.")
     }
     unless $easy_ipa::ipa_master_fqdn {

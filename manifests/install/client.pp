@@ -59,7 +59,7 @@ class easy_ipa::install::client {
   --realm=${easy_ipa::final_realm} \
   --domain=${easy_ipa::domain} \
   --principal='${easy_ipa::domain_join_principal}' \
-  --password='${easy_ipa::final_domain_join_password}' \
+  --password='${easy_ipa::domain_join_password}' \
   ${client_install_cmd_opts_dns_updates} \
   ${client_install_cmd_opts_hostname} \
   ${client_install_cmd_opts_mkhomedir} \
