@@ -1,9 +1,11 @@
 fixtures:
   forge_modules:
-    stdlib: "puppetlabs/stdlib"
+    stdlib:
+      repo: "puppetlabs/stdlib"
+      ref: "9.4.1"
     cron_core:
       repo: "puppetlabs/cron_core"
-      ref: "1.0.0"
+      ref: "1.2.1"
       puppet_version: ">= 7.0.0"
     k5login_core:
       repo: "puppetlabs/k5login_core"
