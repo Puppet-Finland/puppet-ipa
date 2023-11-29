@@ -16,7 +16,7 @@ class easy_ipa::params {
     }
     'Debian': {
       case $facts['os']['distro']['codename'] {
-        /(trusty|xenial|bionic|buster|focal|bullseye|jammy)/: { $ipa_client_package_ensure = 'present' }
+        /(trusty|xenial|bionic|buster|focal|bullseye|jammy|bookworm)/: { $ipa_client_package_ensure = 'present' }
         /(stretch)/:                                          { $ipa_client_package_ensure = 'absent' }
         default:                                              { fail('ERROR: unsupported operating system') }
       }
