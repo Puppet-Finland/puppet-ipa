@@ -15,7 +15,8 @@ class easy_ipa::install::client::debian {
     enable => true,
     name   => 'oddjobd',
   }
-  $mkhomedir_line = "session optional /lib/x86_64-linux-gnu/security/pam_oddjob_mkhomedir.so"
+  $arch = $facts['os']['hardware']
+  $mkhomedir_line = "session optional /lib/${arch}-linux-gnu/security/pam_oddjob_mkhomedir.so"
   $notify = Service['oddjobd']
 
   file_line { 'mkhomedir':
